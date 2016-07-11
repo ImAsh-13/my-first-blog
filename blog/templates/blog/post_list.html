@@ -3,15 +3,27 @@
       <title> Aswin's Blog </title>
   </head>
 
-
   <body bgcolor="black">
+
     <img src="https://c2.staticflickr.com/4/3336/3418572883_22de0c2787_b.jpg" alt="United trio" style="width:1315;height:430px;">
-    <strong><h1> <a href="https://asmophotography.blogspot.com"> Aswin's Blog </a> </h1></strong>
-    <div>
+    <strong><h1> <font size='10' color='blue'><u><b><a> Aswin's Blog </a></u></font></b></h1></strong>
+
+<div>
   <h2> <font color="red"> Hi </font> </h2>
-  <h3> <font color="red"> Is this awesome or what? <font> </h3>
+  <h3> <font color="red"> Is this awesome or what? </font> </h3>
 </div>
-  <body>
 
+<div>
+<font color="white"> {{ posts }} </font>
+</div>
 
+{% for post in posts %}
+    <div>
+        <h1><font color="red"><a href="">{{ post.title }}</font></a></h1>
+        <p><font size='2' color="white"><i>published: {{ post.published_date }}</i></font></p>
+        <p><font color="white">{{ post.text|linebreaksbr }}</font></p>
+    </div>
+{% endfor %}
+
+<body>
 </html>
