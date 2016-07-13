@@ -1,29 +1,38 @@
+{% load staticfiles %}
 <html>
   <head>
       <title> Aswin's Blog </title>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
   </head>
-
-  <body bgcolor="black">
+  <body>
 
     <img src="https://c2.staticflickr.com/4/3336/3418572883_22de0c2787_b.jpg" alt="United trio" style="width:1315;height:430px;">
-    <strong><h1> <font size='10' color='blue'><u><b><a> Aswin's Blog </a></u></font></b></h1></strong>
 
-<div>
-  <h2> <font color="red"> Hi </font> </h2>
-  <h3> <font color="red"> Is this awesome or what? </font> </h3>
-</div>
 
-<div>
-<font color="white"> {{ posts }} </font>
-</div>
-
-{% for post in posts %}
-    <div>
-        <h1><font color="red"><a href="">{{ post.title }}</font></a></h1>
-        <p><font size='2' color="white"><i>published: {{ post.published_date }}</i></font></p>
-        <p><font color="white">{{ post.text|linebreaksbr }}</font></p>
+    <div class="page-header">
+    <strong> <h1><a href="/">Aswin's Blog</a></h1></strong>
     </div>
-{% endfor %}
 
-<body>
+    <div class="welnote">
+      <h2>Hello! Welcome to my Manchester United Blog Page</h2>
+    </div>
+  <div class="content container">
+    <div class="row">
+      <div class="col-md-8">
+        {% for post in posts %}
+          <div class="post">
+            <h1><a href="">{{ post.title }}</a></h1>
+            <div class="date">
+                <p>Published: {{ post.published_date }}</p>
+            </div>
+            <p>{{ post.text|linebreaksbr }}</p>
+          </div>
+      {% endfor %}
+      </div>
+    <div>
+  <div>
+    </body>
 </html>
