@@ -1,38 +1,14 @@
-{% load staticfiles %}
-<html>
-  <head>
-      <title> Aswin's Blog </title>
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-  </head>
-  <body>
+{% extends 'blog/base.html' %}
 
-    <img src="https://c2.staticflickr.com/4/3336/3418572883_22de0c2787_b.jpg" alt="United trio" style="width:1315;height:430px;">
+{% block content %}
 
-
-    <div class="page-header">
-    <strong> <h1><a href="/">Aswin's Blog</a></h1></strong>
-    </div>
-
-    <div class="welnote">
-      <h2>Hello! Welcome to my Manchester United Blog Page</h2>
-    </div>
-  <div class="content container">
-    <div class="row">
-      <div class="col-md-8">
         {% for post in posts %}
           <div class="post">
-            <h1><a href="">{{ post.title }}</a></h1>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <div class="date">
                 <p>Published: {{ post.published_date }}</p>
             </div>
             <p>{{ post.text|linebreaksbr }}</p>
           </div>
       {% endfor %}
-      </div>
-    <div>
-  <div>
-    </body>
-</html>
+  {% endblock %}

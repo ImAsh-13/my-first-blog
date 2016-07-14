@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<html>
+  <head>
+      <title> Aswin's Blog </title>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+  </head>
+  <body>
+
+    <img src="https://c2.staticflickr.com/4/3336/3418572883_22de0c2787_b.jpg" alt="Old Trafford" style="width:1315;height:430px;">
+
+    <div class="page-header">
+      <div class="element3">
+        <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg" alt="Manchester United Logo" style="width:85;height:86px;">
+      </div>
+      {% if user.is_authenticated %}
+          <div class="element1">
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+          </div>
+      {% endif %}
+      <div class="element2">
+        <h1><a href="/">Aswin's Blog</a></h1>
+      </div>
+  </div>
+
+
+
+    <div class="welnote">
+      <h2>Hello! Welcome to my Manchester United Blog Page</h2>
+    </div>
+
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
